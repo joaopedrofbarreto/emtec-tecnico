@@ -16,4 +16,10 @@ export async function regioesRoutes(app: FastifyInstance) {
     const regiao = await prisma.regiao.create({ data: dados });
     return reply.status(201).send(regiao);
   });
+
+  app.delete('/regioes/:id', async (request, reply) => {
+    const { id } = request.params as { id: string };
+    await prisma.regiao.delete({ where: { id: Number(id) } });
+    return reply.status(204).send();
+  });
 }

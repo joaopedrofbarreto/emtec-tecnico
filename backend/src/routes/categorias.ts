@@ -15,4 +15,10 @@ export async function categoriasRoutes(app: FastifyInstance) {
     const categoria = await prisma.categoria.create({ data: dados });
     return reply.status(201).send(categoria);
   });
+
+  app.delete('/categorias/:id', async (request, reply) => {
+    const { id } = request.params as { id: string };
+    await prisma.categoria.delete({ where: { id: Number(id) } });
+    return reply.status(204).send();
+  });
 }

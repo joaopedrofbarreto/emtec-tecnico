@@ -16,4 +16,10 @@ export async function faixasRoutes(app: FastifyInstance) {
     const faixa = await prisma.faixaUtilizacao.create({ data: dados });
     return reply.status(201).send(faixa);
   });
+
+  app.delete('/faixas-utilizacao/:id', async (request, reply) => {
+    const { id } = request.params as { id: string };
+    await prisma.faixaUtilizacao.delete({ where: { id: Number(id) } });
+    return reply.status(204).send();
+  });
 }

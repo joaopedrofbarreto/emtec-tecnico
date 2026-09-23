@@ -18,4 +18,10 @@ export async function servicosRoutes(app: FastifyInstance) {
     const servico = await prisma.servico.create({ data: dados });
     return reply.status(201).send(servico);
   });
+
+  app.delete('/servicos/:id', async (request, reply) => {
+    const { id } = request.params as { id: string };
+    await prisma.servico.delete({ where: { id: Number(id) } });
+    return reply.status(204).send();
+  });
 }

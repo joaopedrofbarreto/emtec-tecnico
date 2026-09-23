@@ -10,7 +10,10 @@ import { calculoRoutes } from './routes/calculo.js';
 
 const app = Fastify({ logger: true });
 
-app.register(cors, { origin: true });
+app.register(cors, {
+  origin: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+});
 
 app.get('/health', async () => ({ status: 'ok' }));
 
