@@ -51,7 +51,7 @@ export async function regrasRoutes(app: FastifyInstance) {
     const { id } = request.params as { id: string };
     const dados = regraSchema.parse(request.body);
     const regra = await prisma.regra.update({
-      where: { id: Number(id) },
+      where: { id },
       data: {
         nome: dados.nome,
         prioridade: dados.prioridade,
@@ -65,7 +65,7 @@ export async function regrasRoutes(app: FastifyInstance) {
   app.patch('/regras/:id/ativar', async (request, reply) => {
     const { id } = request.params as { id: string };
     const regra = await prisma.regra.update({
-      where: { id: Number(id) },
+      where: { id },
       data: { ativa: true },
     });
     return reply.send(regra);
@@ -74,7 +74,7 @@ export async function regrasRoutes(app: FastifyInstance) {
   app.patch('/regras/:id/desativar', async (request, reply) => {
     const { id } = request.params as { id: string };
     const regra = await prisma.regra.update({
-      where: { id: Number(id) },
+      where: { id },
       data: { ativa: false },
     });
     return reply.send(regra);

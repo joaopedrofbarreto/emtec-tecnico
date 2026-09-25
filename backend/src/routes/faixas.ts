@@ -19,7 +19,7 @@ export async function faixasRoutes(app: FastifyInstance) {
 
   app.delete('/faixas-utilizacao/:id', async (request, reply) => {
     const { id } = request.params as { id: string };
-    await prisma.faixaUtilizacao.delete({ where: { id: Number(id) } });
+    await prisma.faixaUtilizacao.delete({ where: { id } });
     return reply.status(204).send();
   });
 }

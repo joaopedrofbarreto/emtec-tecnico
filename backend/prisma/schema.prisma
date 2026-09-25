@@ -13,34 +13,34 @@ datasource db {
 }
 
 model Servico {
-  id        Int     @id @default(autoincrement())
+  id        String  @id @default(uuid())
   codigo    Int     @unique
   nome      String
   valorBase Decimal
 }
 
 model Categoria {
-  id     Int    @id @default(autoincrement())
+  id        String  @id @default(uuid())
   codigo Int    @unique
   nome   String
 }
 
 model Regiao {
-  id         Int     @id @default(autoincrement())
+  id        String  @id @default(uuid())
   codigo     Int     @unique
   nome       String
   fatorPreco Decimal
 }
 
 model FaixaUtilizacao {
-  id                Int     @id @default(autoincrement())
+  id        String  @id @default(uuid())
   quantidadeInicial Int
   quantidadeFinal   Int?
   acrescimo         Decimal
 }
 
 model Regra {
-  id         Int      @id @default(autoincrement())
+  id        String  @id @default(uuid())
   nome       String
   prioridade Int
   ativa      Boolean  @default(true)

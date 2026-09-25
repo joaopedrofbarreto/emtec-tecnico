@@ -21,9 +21,9 @@ export function CalculoPage() {
   async function calcular(e: React.FormEvent) {
     e.preventDefault();
     const resposta = await api.post<ResultadoCalculo>('/calculo', {
-      servicoId: Number(servicoId),
-      categoriaId: Number(categoriaId),
-      regiaoId: Number(regiaoId),
+      servicoId,
+      categoriaId,
+      regiaoId,
       quantidade: Number(quantidade),
     });
     setResultado(resposta.data);

@@ -21,7 +21,7 @@ export async function servicosRoutes(app: FastifyInstance) {
 
   app.delete('/servicos/:id', async (request, reply) => {
     const { id } = request.params as { id: string };
-    await prisma.servico.delete({ where: { id: Number(id) } });
+    await prisma.servico.delete({ where: { id } });
     return reply.status(204).send();
   });
 }

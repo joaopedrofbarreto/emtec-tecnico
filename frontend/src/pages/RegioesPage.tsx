@@ -24,7 +24,7 @@ export function RegioesPage() {
     carregar();
   }
 
-  async function remover(id: number) {
+  async function remover(id: string) {
     if (!confirm('Remover esta região?')) return;
     await api.delete(`/regioes/${id}`);
     carregar();

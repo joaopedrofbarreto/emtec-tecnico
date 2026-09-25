@@ -2,9 +2,9 @@ import { prisma } from '../db/prisma.js';
 import { avaliarCondicao } from './avaliarCondicao.js';
 
 interface EntradaCalculo {
-  servicoId: number;
-  categoriaId: number;
-  regiaoId: number;
+  servicoId: string;
+  categoriaId: string;
+  regiaoId: string;
   quantidade: number;
 }
 

@@ -18,7 +18,7 @@ export async function categoriasRoutes(app: FastifyInstance) {
 
   app.delete('/categorias/:id', async (request, reply) => {
     const { id } = request.params as { id: string };
-    await prisma.categoria.delete({ where: { id: Number(id) } });
+    await prisma.categoria.delete({ where: { id } });
     return reply.status(204).send();
   });
 }

@@ -22,7 +22,7 @@ export function CategoriasPage() {
     carregar();
   }
 
-    async function remover(id: number) {
+    async function remover(id: string) {
     if (!confirm('Remover esta categoria?')) return;
     await api.delete(`/categorias/${id}`);
     carregar();

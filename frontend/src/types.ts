@@ -1,25 +1,25 @@
 export interface Servico {
-  id: number;
+  id: string;
   codigo: number;
   nome: string;
   valorBase: number;
 }
 
 export interface Categoria {
-  id: number;
+  id: string;
   codigo: number;
   nome: string;
 }
 
 export interface Regiao {
-  id: number;
+  id: string;
   codigo: number;
   nome: string;
   fatorPreco: number;
 }
 
 export interface FaixaUtilizacao {
-  id: number;
+  id: string;
   quantidadeInicial: number;
   quantidadeFinal: number | null;
   acrescimo: number;
@@ -32,7 +32,7 @@ export interface CondicaoSimples {
 }
 
 export interface Regra {
-  id: number;
+  id: string;
   nome: string;
   prioridade: number;
   ativa: boolean;
@@ -42,9 +42,9 @@ export interface Regra {
 
 export interface ResultadoCalculo {
   id: string;
-  entrada: { servicoId: number; categoriaId: number; regiaoId: number; quantidade: number };
+  entrada: { servicoId: string; categoriaId: string; regiaoId: string; quantidade: number };
   valorInicial: number;
-  regrasAvaliadas: { regraId: number; nome: string; bateu: boolean }[];
-  regrasAplicadas: { regraId: number; nome: string; tipo: string; valorAplicado: number }[];
+  regrasAvaliadas: { regraId: string; nome: string; bateu: boolean }[];
+  regrasAplicadas: { regraId: string; nome: string; tipo: string; valorAplicado: number }[];
   valorFinal: number;
 }

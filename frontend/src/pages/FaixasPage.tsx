@@ -28,7 +28,7 @@ export function FaixasPage() {
     carregar();
   }
 
-  async function remover(id: number) {
+  async function remover(id: string) {
     if (!confirm('Remover esta faixa de utilização?')) return;
     await api.delete(`/faixas-utilizacao/${id}`);
     carregar();

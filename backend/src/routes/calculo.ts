@@ -4,9 +4,9 @@ import { executarCalculo } from '../motor/calcular.js';
 import { getMongoDb } from '../db/mongo.js';
 
 const entradaSchema = z.object({
-  servicoId: z.number().int(),
-  categoriaId: z.number().int(),
-  regiaoId: z.number().int(),
+  servicoId: z.string().min(1),
+  categoriaId: z.string().min(1),
+  regiaoId: z.string().min(1),
   quantidade: z.number().int().positive(),
 });
 

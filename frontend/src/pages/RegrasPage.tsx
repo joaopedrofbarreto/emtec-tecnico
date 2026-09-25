@@ -16,7 +16,7 @@ export function RegrasPage() {
   const [tipoAcao, setTipoAcao] = useState<'DESCONTO' | 'ACRESCIMO'>('DESCONTO');
   const [modoAcao, setModoAcao] = useState<'PERCENTUAL' | 'FIXO'>('PERCENTUAL');
   const [valorAcao, setValorAcao] = useState('');
-  const [editandoId, setEditandoId] = useState<number | null>(null);
+  const [editandoId, setEditandoId] = useState<string | null>(null);
 
   async function carregar() {
     const resposta = await api.get<Regra[]>('/regras');

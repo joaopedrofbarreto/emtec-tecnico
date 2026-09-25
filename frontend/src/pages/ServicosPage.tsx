@@ -30,7 +30,7 @@ export function ServicosPage() {
     carregar();
   }
 
-    async function remover(id: number) {
+    async function remover(id: string) {
     if (!confirm('Remover este serviço?')) return;
     await api.delete(`/servicos/${id}`);
     carregar();
