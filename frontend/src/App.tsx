@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div style={{ maxWidth: 900, margin: '0 auto', padding: 20, fontFamily: 'sans-serif' }}>
-      <h1>EMTEC — Motor de Regras</h1>
+      <h1>Motor de Regras de Cálculo</h1>
       <nav style={{ display: 'flex', gap: 8, marginBottom: 20 }}>
         {Object.entries(ABAS).map(([chave, { label }]) => (
           <button

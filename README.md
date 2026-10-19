@@ -1,4 +1,6 @@
-# EMTEC — Teste Técnico: Motor de Regras de Cálculo
+# Pricing Rules Engine — Motor de Regras de Cálculo
+
+Motor de cálculo de preços com regras parametrizáveis: descontos e acréscimos são cadastrados como dados (condições AND/OR em JSON) e aplicados por um motor genérico, sem nenhuma regra de negócio hardcoded.
 
 ## Como executar
 
@@ -62,14 +64,14 @@ Todas as chaves primárias são UUID; `codigo` é usado como identificador de ne
 
 - **IDs UUID** em vez de sequenciais — evita previsibilidade/enumeração de recursos
 - **Prisma 7 com driver adapters** (`@prisma/adapter-pg`) em vez do driver nativo — reduz dependência de binários no container
-- **Execução via `tsx`** também em produção (sem etapa de build separada) — prioriza simplicidade dado o prazo do desafio
-- **Poliglota persistence:** Postgres para configuração relacional (integridade referencial importa), Mongo para log de execução (schema variável, append-only)
-- **Fator de região aplicado diretamente no valor base**, separado do motor de regras condicionais — reflete a natureza fixa dessa tarifa (seção 3 do edital) versus a natureza dinâmica das regras (seção 4)
+- **Execução via `tsx`** também em produção (sem etapa de build separada) — prioriza simplicidade
+- **Persistência poliglota:** Postgres para configuração relacional (integridade referencial importa), Mongo para log de execução (schema variável, append-only)
+- **Fator de região aplicado diretamente no valor base**, separado do motor de regras condicionais — reflete a natureza fixa dessa tarifa versus a natureza dinâmica das regras
 - **Healthcheck no Postgres** via `pg_isready`, com o backend configurado para aguardar o banco ficar saudável antes de iniciar — evita falhas de inicialização por corrida entre containers
 
 ## Possibilidades de evolução
 
 - Construtor de condições no frontend hoje suporta um nível de agrupamento (AND/OR); o backend já suporta aninhamento completo de grupos
-- Autenticação/autorização de usuários e controle de permissões por operação (não implementado, fora do escopo mínimo pedido)
+- Autenticação/autorização de usuários e controle de permissões por operação
 - Comparação de condições por ID de referência em vez de nome textual, eliminando qualquer sensibilidade a digitação/acentuação
 - Etapa de build (`tsc`) separada da execução, para uma imagem Docker mais enxuta em produção
